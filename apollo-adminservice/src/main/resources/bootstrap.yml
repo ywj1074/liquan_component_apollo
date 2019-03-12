@@ -1,0 +1,18 @@
+eureka:
+  instance:
+    hostname: ${hostname:localhost}
+    preferIpAddress: true
+    status-page-url-path: /info
+    health-check-url-path: /health
+    ip-address: @apollo_ip_address@
+  client:
+    serviceUrl:
+      defaultZone: http://liquan-component-eureka:21000/eureka/
+    healthcheck:
+      enabled: true
+    eurekaServiceUrlPollIntervalSeconds: 60
+
+management:
+  health:
+    status:
+      order: DOWN, OUT_OF_SERVICE, UNKNOWN, UP 

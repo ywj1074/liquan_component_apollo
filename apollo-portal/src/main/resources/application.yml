@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: liquan-component-apollo-portal
+  profiles:
+    active: @spring-package-profile@,auth
+
+server:
+  port: 21100
+  compression:
+    enabled: true
+  
+logging:
+    home: @logback.root.path@
+    path: @logback.root.path@
+    file: @logback.root.path@/spring.log
+    level:
+      org.springframework.cloud: @logback.loglevel@
+
+management:
+  health:
+    status:
+      order: DOWN, OUT_OF_SERVICE, UNKNOWN, UP 
+
+

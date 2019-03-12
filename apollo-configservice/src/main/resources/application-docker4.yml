@@ -1,0 +1,6 @@
+spring:
+  datasource:
+      url: jdbc:mysql://rm-bp1rc23s40ss8j9lw.mysql.rds.aliyuncs.com:3306/04apolloconfigdb?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      username: user_04
+      password: Kei7cDcYwO2IeJqZ
+

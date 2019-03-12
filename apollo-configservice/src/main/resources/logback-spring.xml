@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<springProperty scope="context" name="fluentHost" source="myapp.fluentd.host"/>
+	<springProperty scope="context" name="loghome" source="logging.home"/>
+	<springProperty scope="context" name="loglevel" source="logging.level"/>
+
+	<!-- The FILE and ASYNC appenders are here as examples for a production configuration -->
+	<!---->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/var/log/liquan/liquan_component_apollo_config/log.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>utf-8</charset>
+			<Pattern>%d %-5level [%thread] %logger{0}: %msg%n</Pattern>
+		</encoder>
+
+	</appender>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<charset>utf8</charset>
+			<Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread]%logger{56}.%method:%L -%msg%n</Pattern>
+		</encoder>
+	</appender>
+	<root level="${logback.loglevel}">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+</configuration>

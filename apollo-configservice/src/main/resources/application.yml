@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: liquan-component-apollo-configservice
+  profiles:
+    active: @spring-package-profile@
+
+ctrip:
+  appid: 100003171
+  
+server:
+  port: 21102
+
+logging:
+    home: @logback.root.path@
+    path: @logback.root.path@
+    file: @logback.root.path@/spring.log
+    level:
+      org.springframework.cloud: @logback.loglevel@
